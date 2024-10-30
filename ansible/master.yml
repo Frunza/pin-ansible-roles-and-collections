@@ -1,0 +1,15 @@
+- name: master playlist
+  hosts: local
+  gather_facts: true
+  become: yes
+  vars:
+    ntp_servers:
+      - time.google.com
+  roles:
+    - geerlingguy.ntp
+  tasks:
+    - name: Schedule a command to execute in 20 minutes as root
+      ansible.posix.at:
+        command: echo "Hello, World!"
+        count: 20
+        units: minutes

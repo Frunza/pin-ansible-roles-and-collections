@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  main:
+    image: ansiblepinversions
+    network_mode: host
+    working_dir: /app
+    environment:
+      - RESPONSE=${RESPONSE}
+      # location of ansible config: https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-configuration-settings-locations
+      - ANSIBLE_CONFIG=/app/ansible/ansible.cfg
+    entrypoint: ["sh", "-c"]
+    # command: ["ansible-galaxy collection list && ansible-galaxy role list && sh runAnsible.sh"]
+    command: ["sh runAnsible.sh"]
