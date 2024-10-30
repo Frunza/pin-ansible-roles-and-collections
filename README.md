@@ -1,4 +1,4 @@
-# Respond with environment value in Ansible
+# Pin Ansible roles and collections
 
 ## Motivation
 
