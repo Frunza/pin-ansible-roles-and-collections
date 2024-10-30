@@ -55,7 +55,7 @@ Now it's time to update the dockerfile with the pinned version:
 ```sh
 RUN ansible-galaxy install geerlingguy.ntp,2.5.0
 ```
-Note that the sintax is to add a comma `,` at the end, followed by the version.
+Note that the syntax is to add a comma `,` at the end, followed by the version.
 
 Let's try using a collection also:
 ```sh
