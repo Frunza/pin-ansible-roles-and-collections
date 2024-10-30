@@ -28,7 +28,7 @@ RUN ansible-galaxy install geerlingguy.ntp
 You can use it in an `Ansible` playlist like shown below:
 ```sh
 - name: master playlist
-  hosts: local
+  hosts: hosts
   gather_facts: true
   become: yes
   vars:
@@ -39,14 +39,14 @@ You can use it in an `Ansible` playlist like shown below:
 ```
 Most `Ansible` roles read configuration settings from `vars`. 
 
-Currently, the role `geerlingguy.ntp` is not pinned, so when running the `Ansible` playlist via `Docker`, you will get the laterst version of the `geerlingguy.ntp` role. But what version is it?
+Currently, the role `geerlingguy.ntp` is not pinned, so when running the `Ansible` playlist via `Docker`, you will get the latest version of the `geerlingguy.ntp` role. But what version is it?
 
 To figure out the used version, you have to call
 ```sh
 ansible-galaxy role list
 ```
 inside the container and retrieve the version of the role you are using.
-If you use a `docker-compose` file, you just have to list the ansible roles in the place you call your `Ansible` playbook. For example:
+If you use a `docker-compose` file, you just have to list the `Ansible` roles in the place you call your `Ansible` playbook. For example:
 ```sh
     command: ["ansible-galaxy role list && sh runAnsible.sh"]
 ```
