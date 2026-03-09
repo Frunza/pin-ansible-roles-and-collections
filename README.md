@@ -8,11 +8,10 @@ If you are using `Ansible` you will eventually end up using roles and/or collect
 
 A Linux or MacOS machine for local development. If you are running Windows, you first need to set up the *Windows Subsystem for Linux (WSL)* environment.
 
-You need `docker cli` and `docker-compose` on your machine for testing purposes, and/or on the machines that run your pipeline.
-You can check both of these by running the following commands:
+You need `docker cli` on your machine for testing purposes, and/or on the machines that run your pipeline.
+You can these by running the following command:
 ```sh
 docker --version
-docker-compose --version
 ```
 
 Make sure that you already have a docker container with SSH access.
@@ -46,7 +45,7 @@ To figure out the used version, you have to call
 ansible-galaxy role list
 ```
 inside the container and retrieve the version of the role you are using.
-If you use a `docker-compose` file, you just have to list the `Ansible` roles in the place you call your `Ansible` playbook. For example:
+If you use a `docker compose` file, you just have to list the `Ansible` roles in the place you call your `Ansible` playbook. For example:
 ```sh
     command: ["ansible-galaxy role list && sh runAnsible.sh"]
 ```
@@ -97,6 +96,6 @@ sh run.sh
 The following happens:
 1) the first command builds the docker image, passing the private key value as an argument and tagging it as *ansiblepinversions*
 2) the docker image sets up the SSH access by copying the value of the `SSH_PRIVATE_KEY` argument to the standard location for SSH keys
-3) the second command uses docker-compose to create the container and run it. The container runs the `master.yml` `Ansible` playbook, which asks a question, responds to it and prints the output.
+3) the second command uses docker compose to create the container and run it. The container runs the `master.yml` `Ansible` playbook, which asks a question, responds to it and prints the output.
 
 Note: if you want to test this, consider changing the `hosts` in the `Ansible` playbook to `local`.

@@ -4,4 +4,4 @@
 set -e
 
 docker build --build-arg SSH_PRIVATE_KEY="$TARGET_MACHINE_SSH_PRIVATE_KEY" -t ansiblepinversions .
-docker-compose -f docker-compose.yml run --rm main
+docker compose -f docker-compose.yml run --rm main
